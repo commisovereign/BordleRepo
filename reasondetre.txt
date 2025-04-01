@@ -1,0 +1,7 @@
+"It was the best of times, it was the BLURST of times!?"
+
+Bordle is essentially a Wordle clone that I'm creating because I'm bored. Maybe I'll refactor it and fold it into my react 
+reflection project and creating a gui for it. Eventually I should also add a few more options for game styles, like additional
+lives, longer or shorter words, memory, etc.; for now though I'll be content to just get the logic of the game working.
+
+- Zaid Nolley April 1st 2025

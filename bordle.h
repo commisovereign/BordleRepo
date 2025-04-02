@@ -36,11 +36,19 @@ namespace Bordle
             Board(std::string currentWord, int numRows, int numCols);
             
             //std::string attempt_answer();
-            
+
             void fillRow();
 
             int checkAnswer();
 
+    };
+
+    class GamePlay
+    {
+
+        public:
+            int gameOver();
+            
     };
 
 }

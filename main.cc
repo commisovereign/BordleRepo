@@ -6,7 +6,7 @@ int main(int argc, char* argv[]){
 
     std::cout << "Enter player name: ";
     std::cin >> playerName;
-    
 
-    return;
+
+    return 1;
 }

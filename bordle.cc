@@ -4,3 +4,7 @@
 using namespace std;
 using namespace Bordle;
 
+
+Board::Board(){
+    
+}

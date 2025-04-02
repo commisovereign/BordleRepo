@@ -12,7 +12,7 @@ Board::Board(){
     curRow = 0;
 }
 
-void Board::display_board(){
+void Board::display_board(void){
     for(int j = 0; j < numCols; j++){
         std::cout << " _ ";
     }

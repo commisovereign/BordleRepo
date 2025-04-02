@@ -37,9 +37,11 @@ namespace Bordle
             
             //std::string attempt_answer();
 
-            void fillRow();
+            void fill_row();
 
-            int checkAnswer();
+            int check_answer();
+
+            void display_board();
 
     };
 
@@ -47,8 +49,8 @@ namespace Bordle
     {
 
         public:
-            int gameOver();
-            
+            int game_over();
+
     };
 
 }

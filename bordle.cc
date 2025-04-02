@@ -4,7 +4,6 @@
 #include <vector>
 
 using namespace std;
-using namespace Bordle;
 
 //default board of size 6x5
 Board::Board(){

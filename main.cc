@@ -1,6 +1,5 @@
 #include "bordle.h"
 #include <iostream>
-using namespace Bordle;
 
 
 int main(int argc, char* argv[]){

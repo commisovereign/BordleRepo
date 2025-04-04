@@ -3,7 +3,7 @@
 #include <string>
 
 
-class Player
+class Player: public Board
 {
     private:
         int livesRemaining;
@@ -34,6 +34,7 @@ class Board
         Board(int numRows, int numCols);
         Board(std::string currentWord, int numRows, int numCols);
         
+        int get_num_rows();
         //std::string attempt_answer();
 
         void fill_row();
@@ -46,10 +47,12 @@ class Board
 
 class GamePlay
 {
+    private:
+        
 
     public:
-        int game_over();
-
+        void available_letters();
+        void crossOutLetters();
 };
 
 #endif

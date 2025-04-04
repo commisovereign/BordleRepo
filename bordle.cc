@@ -12,6 +12,9 @@ Board::Board(){
     curRow = 0;
 }
 
+int Board::get_num_rows(){
+    return this->numRows;
+}
 void Board::display_board(void){
     for(int j = 0; j < numCols; j++){
         std::cout << " _ ";
@@ -23,4 +26,11 @@ void Board::display_board(void){
         }
         std::cout << std::endl; 
     }
+}
+
+Player::Player(std::string playerName){
+    playerName = playerName;
+    livesRemaining = Board::get_num_rows();
+
+    cout<<"Lives Remaining for "<< playerName<<": "<< livesRemaining<<endl;
 }

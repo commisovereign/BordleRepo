@@ -7,7 +7,8 @@ int main(int argc, char* argv[]){
 
     std::cout << "Enter player name: ";
     std::cin >> playerName;
-
+    Player curPlayer = Player(playerName);
+    
     Board defaultBoard = Board();
     defaultBoard.display_board();
 

@@ -30,7 +30,13 @@ void Board::display_board(void){
 
 Player::Player(std::string playerName){
     playerName = playerName;
-    livesRemaining = Board::get_num_rows();
+}
 
-    cout<<"Lives Remaining for "<< playerName<<": "<< livesRemaining<<endl;
+void Player::set_lives(int lives){
+    livesRemaining = lives;
+}
+
+int Player::get_lives_remaining(){
+    std::cout<<"Lives Remaining for "<< playerName<<": "<< livesRemaining<<endl;
+    return livesRemaining;
 }

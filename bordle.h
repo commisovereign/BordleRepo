@@ -3,7 +3,7 @@
 #include <string>
 
 
-class Player: public Board
+class Player:
 {
     private:
         int livesRemaining;
@@ -14,7 +14,7 @@ class Player: public Board
     public:
         Player();
         Player(std::string playerName);
-
+        void set_lives(int lives);
         int get_lives_remaining(void);
 
         void decrement_lives(void);

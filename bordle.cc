@@ -1,5 +1,4 @@
 #include "bordle.h"
-#include "allFiveLetterWords.txt"
 #include <string>
 #include <vector>
 #include <random>
@@ -14,7 +13,7 @@ Board::Board(){
     set_cur_word();
     currentWord = get_cur_word();
     //create_letters();
-
+    std::cout<<currentWord<<std::endl;
 }
 void Board::set_cur_word(){
     int numOfWords = get_file_lines();

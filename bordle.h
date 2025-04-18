@@ -1,6 +1,7 @@
 #ifndef BORDLE_H_
 #define BORDLE_H_
 #include <string>
+#include <ctime>
 #include <map>
 #include <fstream>
 #include <iostream>

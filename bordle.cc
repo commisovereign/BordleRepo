@@ -16,6 +16,8 @@ Board::Board(){
     std::cout<<currentWord<<std::endl;
 }
 void Board::set_cur_word(){
+    //uses current time as a seed in order to generate a random int
+    std::srand(time(0));
     int numOfWords = get_file_lines();
     int wordIndex = std::rand() % numOfWords;
     std::ifstream file(fileName);

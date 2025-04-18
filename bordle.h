@@ -1,6 +1,10 @@
 #ifndef BORDLE_H_
 #define BORDLE_H_
 #include <string>
+#include <map>
+#include <fstream>
+#include <iostream>
+
 
 
 class Player
@@ -28,6 +32,13 @@ class Board
         int numRows;
         int numCols;
         int curRow;
+        std::string fileName;
+        std::map <char, int> letterMap;
+
+        //returns the length of the txt file containing all words of a specific length
+        //as measured by the number of lines in the files
+        int get_file_lines();
+
     public:
         Board();
         Board(std::string currentWord);
@@ -37,22 +48,23 @@ class Board
         int get_num_rows();
         //std::string attempt_answer();
 
+        void set_cur_word();
+
+        std::string get_cur_word();
+
         void fill_row();
 
         int check_answer();
 
         void display_board();
 
-};
+        void create_letters();
 
-class GamePlay
-{
-    private:
-        
-
-    public:
         void available_letters();
+
         void crossOutLetters();
 };
+
+
 
 #endif

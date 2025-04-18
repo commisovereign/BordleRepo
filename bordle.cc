@@ -1,8 +1,8 @@
 #include "bordle.h"
+#include "allFiveLetterWords.txt"
 #include <string>
-#include <iostream>
 #include <vector>
-
+#include <random>
 using namespace std;
 
 //default board of size 6x5
@@ -10,8 +10,47 @@ Board::Board(){
     numRows = 6;
     numCols = 5;
     curRow = 0;
-}
+    fileName = "allFiveLetterWords.txt";
+    set_cur_word();
+    currentWord = get_cur_word();
+    //create_letters();
 
+}
+void Board::set_cur_word(){
+    int numOfWords = get_file_lines();
+    int wordIndex = std::rand() % numOfWords;
+    std::ifstream file(fileName);
+    if (!file.is_open()) {
+        std::cerr << "Could not open the file." << std::endl;
+        return;
+    }
+    int curLine = 0;    
+    while(std::getline(file, currentWord)){
+        if(curLine == wordIndex){
+            file.close();
+            break;
+        }
+        curLine++;
+    }
+    file.close();
+}
+int Board::get_file_lines(){
+    std::ifstream file(fileName);
+    if (!file.is_open()) {
+        std::cerr << "Could not open the file." << std::endl;
+        return -1;
+    }
+    int lineCount = 0;
+    std::string line;
+    while(std::getline(file, line)){
+        lineCount++;
+    }
+    file.close();
+    return lineCount;
+}
+std::string Board::get_cur_word(){
+    return currentWord;
+}
 int Board::get_num_rows(){
     return this->numRows;
 }
@@ -40,3 +79,4 @@ int Player::get_lives_remaining(){
     std::cout<<"Lives Remaining for "<< playerName<<": "<< livesRemaining<<endl;
     return livesRemaining;
 }
+

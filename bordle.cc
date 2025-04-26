@@ -12,7 +12,7 @@ Board::Board(){
     fileName = "allFiveLetterWords.txt";
     set_cur_word();
     currentWord = get_cur_word();
-    //create_letters();
+    create_letters();
     std::cout<<currentWord<<std::endl;
 }
 void Board::set_cur_word(){
@@ -65,6 +65,25 @@ void Board::display_board(void){
             std::cout << "|_|";
         }
         std::cout << std::endl; 
+    }
+}
+
+void Board::create_letters(void){
+    std::map <char, int> tempLetterMap;
+    char letter = 'a';
+    for(int i = 0; i < 26; i++){
+        letterMap[letter] = 1;
+    }
+    if (currentWord.length()){
+        for(int i = 0; i < currentWord.length(); i++){
+            if(tempLetterMap[i]){
+                tempLetterMap[i]++;
+            }
+            else{
+                tempLetterMap[i] = 1;
+            }
+        }
+
     }
 }
 

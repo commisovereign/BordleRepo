@@ -8,6 +8,7 @@ int main(int argc, char* argv[]){
     std::cin >> playerName;
     Player curPlayer = Player(playerName);
     Board defaultBoard = Board();
+    curPlayer.set_word_size(5);
     curPlayer.set_lives(defaultBoard.get_num_rows());
     curPlayer.get_lives_remaining();
     defaultBoard.display_board();

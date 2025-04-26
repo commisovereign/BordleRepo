@@ -87,6 +87,25 @@ void Board::create_letters(void){
     }
 }
 
+int Board::check_answer(std::string guess){
+    std::map <char, int> guessLetterMap;
+    for(int i = 0; i < guess.length(); i++){
+        if(guessLetterMap[i]){
+            guessLetterMap[i]++;
+        }
+        else{
+            guessLetterMap[i] = 1;
+        }
+    }
+
+   /* for(int i = 0; i < guess.length(); i++){
+        if(guess[i] == currentWord[i]){
+
+        }
+    }*/
+
+}
+
 Player::Player(std::string playerName){
     playerName = playerName;
 }
@@ -99,4 +118,22 @@ int Player::get_lives_remaining(){
     std::cout<<"Lives Remaining for "<< playerName<<": "<< livesRemaining<<endl;
     return livesRemaining;
 }
-
+void Player::set_word_size(int wordLength){
+    wordSize = wordLength;
+}
+std::string Player::take_turn(){
+    std::string playerGuess;
+    while(playerGuess.length()){
+        std::cout<<"Your Guess: ";
+        std::cin>>playerGuess;
+        std::cout<<endl;
+        if(playerGuess.length() != wordSize){
+            playerGuess = "";
+            std::cout<<"Please enter only "<<wordSize<<" characters"<<endl;
+            continue;
+        }
+        //have to add other checkers to ensure that already crossed out letters
+        //and non-alphabet characters are not allowed either 
+    }
+    return playerGuess;
+}

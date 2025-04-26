@@ -15,14 +15,16 @@ class Player
         int gamesWon;
         int gamesLost;
         std::string playerName;
+        int wordSize;
         
     public:
         Player();
         Player(std::string playerName);
         void set_lives(int lives);
         int get_lives_remaining(void);
-
+        void set_word_size(int wordLength);
         void decrement_lives(void);
+        std::string take_turn(void);
 
 };
 
@@ -58,7 +60,7 @@ class Board
 
         void fill_row();
 
-        int check_answer();
+        int check_answer(std::string guess);
 
         void display_board();
 
@@ -66,7 +68,11 @@ class Board
 
         void available_letters();
 
-        void crossOutLetters();
+        void display_available_letters();
+
+        void cross_out_letters();
+
+        void display_unavailable_letters();
 };
 
 

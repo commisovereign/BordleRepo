@@ -47,8 +47,8 @@ class Board
         Board(std::string currentWord, int numRows, int numCols);
         
         // Destructor
-        ~Board();
-        
+        //~Board();
+
         int get_num_rows();
         //std::string attempt_answer();
 

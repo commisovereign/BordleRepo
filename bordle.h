@@ -1,10 +1,10 @@
 #ifndef BORDLE_H_
 #define BORDLE_H_
-#include <string>
 #include <ctime>
 #include <map>
 #include <fstream>
 #include <iostream>
+#include <vector>
 
 
 
@@ -36,11 +36,12 @@ class Board
         int numCols;
         int curRow;
         std::string fileName;
-        std::map <char, int> letterMap;
-
+        std::map<char, int> letterMap;
+        std::vector<std::string> previousGuesses;
         //returns the length of the txt file containing all words of a specific length
         //as measured by the number of lines in the files
         int get_file_lines();
+        int borf;
 
     public:
         Board();

@@ -88,6 +88,11 @@ void Board::create_letters(void){
 }
 
 int Board::check_answer(std::string guess){
+    //player guesses correct answer
+    if(guess == currentWord){
+        return 1;
+    }
+
     std::map <char, int> guessLetterMap;
     for(int i = 0; i < guess.length(); i++){
         if(guessLetterMap[i]){
@@ -98,12 +103,10 @@ int Board::check_answer(std::string guess){
         }
     }
 
-   /* for(int i = 0; i < guess.length(); i++){
-        if(guess[i] == currentWord[i]){
+/*   for(auto i : guessLetterMap){
 
-        }
     }*/
-   return 1;
+   return 0;
 
 }
 
@@ -119,12 +122,15 @@ int Player::get_lives_remaining(){
     std::cout<<"Lives Remaining for "<< playerName<<": "<< livesRemaining<<endl;
     return livesRemaining;
 }
+void Player::decrement_lives(){
+    livesRemaining--;
+}
 void Player::set_word_size(int wordLength){
     wordSize = wordLength;
 }
 std::string Player::take_turn(){
     std::string playerGuess;
-    while(playerGuess.length()){
+    while(playerGuess.length() == 0){
         std::cout<<"Your Guess: ";
         std::cin>>playerGuess;
         std::cout<<endl;

@@ -12,5 +12,26 @@ int main(int argc, char* argv[]){
     curPlayer.set_lives(defaultBoard.get_num_rows());
     curPlayer.get_lives_remaining();
     defaultBoard.display_board();
+
+    int gameOver = 0;
+    while(!gameOver){
+        if(curPlayer.get_lives_remaining() < 1){
+            gameOver = 1;
+            std::cout<<"GAME OVER"<<std::endl;
+            continue;
+        }
+        std::string guess = curPlayer.take_turn();
+        if(!defaultBoard.check_answer(guess)){
+            curPlayer.decrement_lives();
+        }
+        else{
+            gameOver = 1;
+            std::cout<<"CORRECT ANSWER"<<std::endl;
+            std::cout<<"GAME OVER"<<std::endl;
+            continue;
+        }
+
+    }
+
     return 1;
 }

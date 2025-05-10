@@ -1,5 +1,4 @@
 #include "bordle.h"
-#include <iostream>
 
 
 int main(int argc, char* argv[]){
@@ -10,7 +9,6 @@ int main(int argc, char* argv[]){
     Board defaultBoard = Board();
     curPlayer.set_word_size(5);
     curPlayer.set_lives(defaultBoard.get_num_rows());
-    curPlayer.get_lives_remaining();
     defaultBoard.display_board();
 
     int gameOver = 0;

@@ -111,8 +111,8 @@ int Board::check_answer(std::string guess){
 
 }
 
-Player::Player(std::string playerName){
-    playerName = playerName;
+Player::Player(std::string player){
+    playerName = player;
 }
 
 void Player::set_lives(int lives){

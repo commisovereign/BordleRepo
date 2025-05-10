@@ -23,6 +23,7 @@ int main(int argc, char* argv[]){
         std::string guess = curPlayer.take_turn();
         if(!defaultBoard.check_answer(guess)){
             curPlayer.decrement_lives();
+            defaultBoard.fill_row();
         }
         else{
             gameOver = 1;

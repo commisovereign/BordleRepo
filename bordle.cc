@@ -89,6 +89,7 @@ void Board::create_letters(void){
 
 int Board::check_answer(std::string guess){
     //player guesses correct answer
+    previousGuesses.push_back(guess);
     if(guess == currentWord){
         return 1;
     }
@@ -139,6 +140,7 @@ std::string Player::take_turn(){
             std::cout<<"Please enter only "<<wordSize<<" characters"<<endl;
             continue;
         }
+        
         //have to add other checkers to ensure that already crossed out letters
         //and non-alphabet characters are not allowed either 
     }

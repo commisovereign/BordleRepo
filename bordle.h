@@ -41,7 +41,6 @@ class Board
         //returns the length of the txt file containing all words of a specific length
         //as measured by the number of lines in the files
         int get_file_lines();
-        int borf;
 
     public:
         Board();

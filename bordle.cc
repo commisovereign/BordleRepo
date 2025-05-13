@@ -95,7 +95,15 @@ int Board::check_answer(std::string guess){
     }
 
     std::map <char, int> guessLetterMap;
+    std::vector <char> correctLetterGuess;
     for(int i = 0; i < guess.length(); i++){
+        if(guess[i] == currentWord[i]){
+            correctLetterGuess.push_back(guess[i]);
+        }
+        if(guess[i] != currentWord[i]){
+            correctLetterGuess.push_back('_');
+
+        }
         if(guessLetterMap[i]){
             guessLetterMap[i]++;
         }
@@ -107,7 +115,12 @@ int Board::check_answer(std::string guess){
 /*   for(auto i : guessLetterMap){
 
     }*/
-   return 0;
+    std::cout << "These letters are correct and in the correct locations:"<<endl;
+    for(int i = 0; i < correctLetterGuess.size(); i++){
+        std::cout << correctLetterGuess[i];
+    }
+    std::cout<<endl;
+    return 0;
 
 }
 
@@ -142,7 +155,8 @@ std::string Player::take_turn(){
         }
         
         //have to add other checkers to ensure that already crossed out letters
-        //and non-alphabet characters are not allowed either 
+        //and non-alphabet characters are not allowed either
+        //Also should check that the guess exists as a word in the txt file
     }
     return playerGuess;
 }

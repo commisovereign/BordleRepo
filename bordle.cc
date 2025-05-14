@@ -106,7 +106,7 @@ int Board::check_answer(std::string guess){
         }
         else if(guess[i] != currentWord[i]){
             correctLetterGuess.push_back('_');
-            if(currentWord.find(guess[i]) != 0){
+            if(currentWord.find(guess[i]) != string::npos){
                 incorrectPlaceGuess.push_back(guess[i]);
             }
             else{
@@ -123,7 +123,7 @@ int Board::check_answer(std::string guess){
         }*/
     }
 
-/*   for(auto i : guessLetterMap){
+    /*for(auto i : guessLetterMap){
 
     }*/
     std::cout << "These letters are correct and in the correct locations:"<<endl;
@@ -135,6 +135,7 @@ int Board::check_answer(std::string guess){
     for(int i = 0; i < incorrectPlaceGuess.size(); i++){
         std::cout << incorrectPlaceGuess[i];
     }
+    std::cout<<endl;
     return 0;
 
 }

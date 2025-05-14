@@ -94,22 +94,30 @@ int Board::check_answer(std::string guess){
         return 1;
     }
 
-    std::map <char, int> guessLetterMap;
+    //std::map <char, int> guessLetterMap;
     std::vector <char> correctLetterGuess;
+    std::vector <char> incorrectPlaceGuess;
+
     for(int i = 0; i < guess.length(); i++){
         if(guess[i] == currentWord[i]){
             correctLetterGuess.push_back(guess[i]);
-        }
-        if(guess[i] != currentWord[i]){
-            correctLetterGuess.push_back('_');
+            incorrectPlaceGuess.push_back('_');
 
         }
-        if(guessLetterMap[i]){
+        else if(guess[i] != currentWord[i]){
+            correctLetterGuess.push_back('_');
+            if(currentWord.find(guess[i])){
+                incorrectPlaceGuess.push_back(guess[i]);
+            }
+
+        }
+
+        /*if(guessLetterMap[i]){
             guessLetterMap[i]++;
         }
         else{
             guessLetterMap[i] = 1;
-        }
+        }*/
     }
 
 /*   for(auto i : guessLetterMap){
@@ -120,6 +128,10 @@ int Board::check_answer(std::string guess){
         std::cout << correctLetterGuess[i];
     }
     std::cout<<endl;
+    std::cout << "These letters are correct, but are in the wrong location(s):"<<endl;
+    for(int i = 0; i < correctLetterGuess.size(); i++){
+        std::cout << incorrectPlaceGuess[i];
+    }
     return 0;
 
 }

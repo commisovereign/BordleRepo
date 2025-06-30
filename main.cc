@@ -10,7 +10,7 @@ int main(int argc, char* argv[]){
     curPlayer.set_word_size(5);
     curPlayer.set_lives(defaultBoard.get_num_rows());
     defaultBoard.display_board();
-
+    curPlayer.set_all_valid_words(defaultBoard.get_all_words());
     int gameOver = 0;
     while(!gameOver){
         if(curPlayer.get_lives_remaining() < 1){

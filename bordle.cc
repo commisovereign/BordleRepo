@@ -1,6 +1,7 @@
 #include "bordle.h"
 #include <string>
 #include <random>
+#include <algorithm>
 using namespace std;
 
 //default board of size 6x5
@@ -45,6 +46,8 @@ int Board::get_file_lines(){
     std::string line;
     while(std::getline(file, line)){
         lineCount++;
+        //simultaneously will create a vector of all valid words to use for checking guesses
+        allValidWords.push_back(line);
     }
     file.close();
     return lineCount;
@@ -86,7 +89,11 @@ void Board::create_letters(void){
 
     }
 }
-
+std::vector<std::string> Board::get_all_words(){
+    if(allValidWords.size() > 0){
+        return allValidWords;
+    }
+}
 int Board::check_answer(std::string guess){
     //player guesses correct answer
     previousGuesses.push_back(guess);
@@ -158,6 +165,10 @@ void Player::decrement_lives(){
 void Player::set_word_size(int wordLength){
     wordSize = wordLength;
 }
+void Player::set_all_valid_words(std::vector<std::string> allWords){
+    allValidWords = allWords;
+}
+
 std::string Player::take_turn(){
     std::string playerGuess;
     while(playerGuess.length() == 0){
@@ -169,10 +180,16 @@ std::string Player::take_turn(){
             std::cout<<"Please enter only "<<wordSize<<" characters"<<endl;
             continue;
         }
-        
+        if(std::find(allValidWords.begin(), allValidWords.end(), playerGuess) != allValidWords.end()) {
+            continue;
+        } else {
+            playerGuess = "";
+            std::cout<<playerGuess<<" is not a valid word"<<endl;
+            continue;
+        }
+
         //have to add other checkers to ensure that already crossed out letters
         //and non-alphabet characters are not allowed either
-        //Also should check that the guess exists as a word in the txt file
     }
     return playerGuess;
 }

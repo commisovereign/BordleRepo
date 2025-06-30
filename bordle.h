@@ -16,6 +16,7 @@ class Player
         int gamesLost;
         std::string playerName;
         int wordSize;
+        std::vector<std::string> allValidWords;
         
     public:
         Player();
@@ -23,6 +24,7 @@ class Player
         void set_lives(int lives);
         int get_lives_remaining(void);
         void set_word_size(int wordLength);
+        void set_all_valid_words(std::vector<std::string> validWords);
         void decrement_lives(void);
         std::string take_turn(void);
 
@@ -36,6 +38,7 @@ class Board
         int numCols;
         int curRow;
         std::string fileName;
+        std::vector<std::string> allValidWords;
         std::map<char, int> letterMap;
         std::vector<std::string> previousGuesses;
         //returns the length of the txt file containing all words of a specific length
@@ -59,6 +62,8 @@ class Board
         std::string get_cur_word();
 
         void fill_row();
+        
+        std::vector<std::string> get_all_words();
 
         int check_answer(std::string guess);
 
